@@ -472,7 +472,7 @@ public class MenuPrincipal {
         producto = mu1;
         producto.setNombre("Mesa 3.0");
         producto.setPrecio(75);
-        servicio.introducirProducto(mu1);
+        servicio.introducirProducto(mu1);       
         
         //LAVADORA 1
         l1.setRevoluciones(3500);     
@@ -489,6 +489,9 @@ public class MenuPrincipal {
         producto.setNombre("Telaca");   
         producto.setPrecio(450);  
         servicio.introducirProducto(t1);
+        
+        //INTRODUCIR UNA VENTA
+        servicio.introducirVenta(2, 1, "David"); 
         
     }
 

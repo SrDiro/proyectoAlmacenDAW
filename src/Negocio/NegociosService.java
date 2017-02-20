@@ -292,12 +292,19 @@ public class NegociosService {
 
     public String imprimirtodasVentas() {
         String res = "";
+        int contador = 0;
+        
+        if (contador == 0) {
+            res += String.format("%1s %15s %15s %15s %20s %1s", " ID VENTA", "VENDEDOR", "CLIENTE", "PRODUCTO", "PRECIO VENTA" + "\n"
+                                  ,"¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
+        }
+        
         if (ventas.isEmpty()) {
             res = "No hay ventas introducidas.";
 
         } else {
             for (Venta v : ventas) {
-                res += "\n ID VENTA VENDEDOR  CLIENTE PRODUCTO PRECIO VENTA" + "\n" + v.getIdVenta() + "   " + v.getVendedor() + "   " + v.getCliente().getIdCliente() + "  " + v.getProducto().getId() + "   " + v.getPrecioVenta();
+                res += String.format("%1s %19s %12s %14s %20s", " " + v.getIdVenta(), v.getVendedor(), v.getCliente().getIdCliente(), v.getProducto().getId(), v.getPrecioVenta() + "\n");
 
             }
         }

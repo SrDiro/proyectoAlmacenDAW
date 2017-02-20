@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class Pruebas {
 
     public static void main(String[] args) {
-        String res = "";
+        String res = "", res2 = "";
 //        System.out.format("%3s %10s %18s %7s %13s %24s %1s", "ID", "NOMBRE", "RAZON SOCIAL", "CIF", "TIPO", "DESCUENTO" + "\n"
 //                               ,"¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
 //        if (clientes.isEmpty()) {
@@ -58,8 +58,15 @@ public class Pruebas {
 //        res +=  String.format("%2s %11s %12s %12s %17s %14s %11s %16s %9s %14s %19s %11s %8s", m.getId(), m.getNombre(), m.getPrecio(), " ", " ", " ", " ", " ", " ", " ", m.getAnyoFab(), m.getTipoMadera(), m.getEstilo();
         res += String.format("%2s %11s %12s %12s %17s %14s %11s %16s %9s %14s %19s %10s %9s",
                 3, "Mesa 2.0", 75.55, " ", " ", " ", " ", " ", " ", " ", "01-diciembre-17", "PINO", "Chino" + "\n");
-
-        System.out.println(res);
+        
+        res2 += String.format("%1s %15s %15s %15s %20s %1s", " ID VENTA", "VENDEDOR", "CLIENTE", "PRODUCTO", "PRECIO VENTA" + "\n"
+                                  ,"¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
+        
+        res2 += String.format("%1s %19s %12s %14s %19s", " " + 1, "David", 2, 1, 174.9);
+        
+        System.out.println(res2);
+        
+//        System.out.println(res);
 //    double precioInicial = 66.88888888, precioMostrar; 
 //    
 //            precioMostrar = Math.round(precioInicial*100.0)/100.0;
