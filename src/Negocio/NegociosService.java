@@ -249,6 +249,14 @@ public class NegociosService {
 
     public String imprimirTodosClientes() {
         String res = "";
+        int contador = 0;
+        
+        if (contador == 0) {
+            res += String.format("%3s %10s %18s %12s %13s %24s %1s", "ID", "NOMBRE", "RAZON SOCIAL", "CIF/DNI", "TIPO", "DESCUENTO" + "\n"
+                               ,"¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
+            contador++;
+        }
+        
         if (clientes.isEmpty()) {
             res = "No hay clientes introducidos.";
 
@@ -257,12 +265,14 @@ public class NegociosService {
 
                 if (c instanceof Mayorista) {
                     Mayorista m = (Mayorista) c;
-                    res += "\n ID NOMBRE  RAZON SOCIAL  CIF   TIPO  DESCUENTO" + "\n" + m.getIdCliente() + "   " + m.getNombre() + "   " + m.getRazonSocial() + "   " + m.getCif() + "   " + m.getTipoMayorista() + "   " + m.getDescuento();
+                    res += String.format("%2s %15s %14s %13s %23s %7s" + "\n",
+                                         m.getIdCliente(), m.getNombre(), m.getRazonSocial(), m.getCif(), m.getTipoMayorista(), m.getDescuento() + "\n");
 
                 }
                 if (c instanceof Particular) {
                     Particular p = (Particular) c;
-                    res += "\n ID NOMBRE  RAZON SOCIAL  DNI" + "\n" + p.getIdCliente() + "   " + p.getNombre() + "      " + p.getRazonSocial() + "   " + p.getDni();
+                    res += String.format("%2s %15s %14s %13s %23s %8s" + "\n",
+                                         p.getIdCliente(), p.getNombre(), p.getRazonSocial(), p.getDni(), "ooe ", "ooe " + "\n");
 
                 }
             }

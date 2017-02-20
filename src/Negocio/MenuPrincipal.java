@@ -22,9 +22,13 @@ public class MenuPrincipal {
 
     MenuPrincipal() {
         servicio = new NegociosService();
+        
     }
 
     public void inciarAplicacion() {
+        
+        datosPorDefecto(servicio);
+        
         try {
             // menu Principal
             int opcion = -1;
@@ -285,17 +289,20 @@ public class MenuPrincipal {
         Scanner sc = new Scanner(System.in);
         Scanner sc2 = new Scanner(System.in);
 
-        String tipoCliente, nombre, razonSocial, cif, dni = null, opcion;
+        String tipoCliente, nombre, razonSocial, cif, dni, opcion;
         boolean bucle = false;
+        int contador = 0;
 
         Mayorista m = new Mayorista();
         TipoMayorista t = null;
         Particular p = new Particular();
 
-        System.out.println("¿Eres particular o mayorista?");
+        System.out.println("Introduce el tipo de Cliente");
+        System.out.println("1.Mayorista");
+        System.out.println("2.Particular");
         tipoCliente = sc.nextLine();
 
-        if (tipoCliente.equalsIgnoreCase("mayorista")) {
+        if (tipoCliente.equals("1")) {
             System.out.print("Dime tu nombre: ");
             nombre = sc.nextLine();
             m.setNombre(nombre);
@@ -308,8 +315,11 @@ public class MenuPrincipal {
             System.out.println("");
             do {
                 System.out.println("Introduzca el tipo de Mayorista");
-                System.out.println("1.GRAN_SUPERFICIE");
-                System.out.println("2.TIENDA");
+                
+                for (TipoMayorista m2 : TipoMayorista.values()){
+                    contador++;
+                    System.out.println(contador + "." + m2);
+                }
 
                 opcion = sc2.nextLine();
 
@@ -324,7 +334,7 @@ public class MenuPrincipal {
             m.setTipoMayorista(t);
 
             servicio.introducirCliente(m);
-        } else if (tipoCliente.equalsIgnoreCase("particular")) {
+        } else if (tipoCliente.equals("2")) {
             System.out.print("Dime tu nombre: ");
             nombre = sc.nextLine();
             p.setNombre(nombre);
@@ -398,6 +408,41 @@ public class MenuPrincipal {
         LocalDate fechaFormat = LocalDate.parse(fecha, patron);
 
         return fechaFormat;
+    }
+    
+    public static void datosPorDefecto(NegociosService servicio) {
+        
+        Particular p1 = new Particular();        
+        Mayorista m1 = new Mayorista();
+        
+        Particular p2 = new Particular();
+        Mayorista m2 = new Mayorista();
+        
+        TipoMayorista tTienda = TipoMayorista.TIENDA;
+        TipoMayorista tGranSuperficie = TipoMayorista.GRAN_SUPERFICIE;
+
+        m1.setNombre("Rasul Diro");
+        m1.setRazonSocial("123456781");
+        m1.setCif("54015429K");
+        m1.setTipoMayorista(tTienda);
+        servicio.introducirCliente(m1);
+        
+        p1.setNombre("Sergio Masao");
+        p1.setRazonSocial("123456782");
+        p1.setDni("54014660B");
+        servicio.introducirCliente(p1);
+        
+        m2.setNombre("Borja Riao");
+        m2.setRazonSocial("123456783");
+        m2.setCif("11501378K");
+        m2.setTipoMayorista(tGranSuperficie);
+        servicio.introducirCliente(m2);
+        
+        p2.setNombre("Joselu Toloco");
+        p2.setRazonSocial("123456784");
+        p2.setDni("50154658F");
+        servicio.introducirCliente(p2);
+        
     }
 
 }
