@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -32,14 +33,17 @@ public class Mueble extends Producto {
 
     @Override
     public void setPrecio(double precioBase) {
+        double precioFinal;
 
         if (tipoMadera == Madera.ROBLE) {
-            precio = precioBase * 1.10;
+            precioFinal = precioBase * 1.10;
         } else if (tipoMadera == Madera.PINO) {
-            precio = precioBase / 1.10;
+            precioFinal = precioBase / 1.10;
         } else {
-            precio = precioBase;
+            precioFinal = precioBase;
         }
+
+        this.precio = Math.round(precioFinal * 100.0) / 100.0;
     }
 
     public String getAnyoFab() {

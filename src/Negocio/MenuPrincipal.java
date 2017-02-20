@@ -285,7 +285,7 @@ public class MenuPrincipal {
     }
 
     private void datosClientes() {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);         
         Scanner sc2 = new Scanner(System.in);
 
         String tipoCliente, nombre, razonSocial, cif, dni, opcion;
@@ -422,7 +422,7 @@ public class MenuPrincipal {
         
         Lavadora l1 = new Lavadora();
         Mueble mu1 = new Mueble();
-        Mueble mu2 = new Mueble();
+        Televisor t1 = new Televisor();
         
         //ENUM TipoMayorista
         TipoMayorista tTienda = TipoMayorista.TIENDA;
@@ -464,9 +464,9 @@ public class MenuPrincipal {
         p2.setRazonSocial("123456784");
         p2.setDni("50154658F");
         servicio.introducirCliente(p2);
-        
+          
         //MUEBLE 1
-        mu1.setTipoMadera(mPINO);
+        mu1.setTipoMadera(mPINO);     
         mu1.setEstilo("Chino");
         mu1.setAnyoFab(this.validarFecha("01-febrero-17"));
         producto = mu1;
@@ -474,14 +474,22 @@ public class MenuPrincipal {
         producto.setPrecio(75);
         servicio.introducirProducto(mu1);
         
-        //MUEBLE 2
-        mu2.setTipoMadera(mPINO);
-        mu2.setEstilo("Chino");
-        mu2.setAnyoFab(this.validarFecha("01-febrero-17"));
-        producto = mu1;
-        producto.setNombre("Mesa a .0");
-        producto.setPrecio(75);
-        servicio.introducirProducto(mu1);
+        //LAVADORA 1
+        l1.setRevoluciones(3500);     
+        l1.setCarga(80);
+        producto = l1;
+        producto.setNombre("Lava 3000");
+        producto.setPrecio(159);
+        servicio.introducirProducto(l1);
+        
+        //TELEVISOR 1
+        t1.setPulgadas(35);
+        t1.setTipo(tPLASMA);
+        producto = t1;
+        producto.setNombre("Telaca");   
+        producto.setPrecio(450);  
+        servicio.introducirProducto(t1);
+        
     }
 
 }

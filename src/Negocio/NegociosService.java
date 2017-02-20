@@ -219,9 +219,9 @@ public class NegociosService {
         int contador = 0;
         
         if (contador == 0) {
-            res += String.format("%3s %10s %12s %12s %16s %13s %10s %15s %10s %10s %18s %10s %10s %1s", "ID", "NOMBRE", "PRECIO", "MARCA", "FABRICANTE", 
+            res += String.format("%3s %10s %12s %12s %16s %13s %10s %15s %18s %10s %18s %10s %10s %1s", "ID", "NOMBRE", "PRECIO", "MARCA", "FABRICANTE", 
                                                                      "TAMAÑO", "TIPO", "PULGADAS", "REVOLUCIONES", "CARGA", "AÑO FABRICACION", "MADERA", "ESTILO" + "\n",
-                                                                     "¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
+                                                                     "¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
             contador++;
         }
         
@@ -232,15 +232,15 @@ public class NegociosService {
             for (Producto p : productos) {
                 if (p instanceof Televisor) {
                     Televisor t = (Televisor) p;
-                    res += String.format("%2s %11s %13s %13s %17s %14s %11s %16s %11s %11s %19s %11s %11s" , 
-                            t.getId(), t.getNombre(), t.getPrecio(), t.getMarca(), t.getFabricante(), t.getTamanyo(), t.getTipo(), t.getPulgadas(), " ", " ", " ", " ", " " + "\n");
+                    res += String.format("%2s %11s %12s %12s %16s %14s %9s %16s %11s %11s %19s %11s %11s" , 
+                            t.getId(), t.getNombre(), t.getPrecio(), t.getMarca(), t.getFabricante(), " ", t.getTipo(), t.getPulgadas(), " ", " ", " ", " ", " " + "\n");
 
                 }
 
                 if (p instanceof Lavadora) {
                     Lavadora l = (Lavadora) p;
-                    res += String.format("%2s %11s %12s %12s %17s %14s %11s %16s %9s %14s %19s %11s %11s", 
-                            l.getId(), l.getNombre(), l.getPrecio(), l.getMarca(), l.getFabricante(), l.getTamanyo(), " ", " ", " ", " ", l.getRevoluciones(), l.getCarga(), " ", " ", " " + "\n");
+                    res += String.format("%2s %11s %12s %12s %16s %13s %10s %15s %18s %9s %18s %10s %10s", 
+                            l.getId(), l.getNombre(), l.getPrecio(), l.getMarca(), l.getFabricante(), l.getTamanyo(), " ", " ", l.getRevoluciones(), l.getCarga(), " ", " ", " " + "\n");
 
                 }
 
@@ -248,7 +248,7 @@ public class NegociosService {
 
                     Mueble m = (Mueble) p;
 
-                    res +=  String.format("%2s %11s %12s %12s %17s %14s %11s %16s %9s %14s %19s %11s %8s", 
+                    res +=  String.format("%2s %11s %12s %12s %17s %14s %11s %16s %9s %14s %19s %10s %9s", 
                             m.getId(), m.getNombre(), m.getPrecio(), " ", " ", " ", " ", " ", " ", " ", m.getAnyoFab(), m.getTipoMadera(), m.getEstilo() + "\n");
 
                 }
