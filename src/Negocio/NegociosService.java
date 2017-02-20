@@ -216,6 +216,15 @@ public class NegociosService {
 
     public String imprimirTodosProductos() {
         String res = "";
+        int contador = 0;
+        
+        if (contador == 0) {
+            res += String.format("%3s %10s %12s %12s %16s %13s %10s %15s %10s %10s %18s %10s %10s %1s", "ID", "NOMBRE", "PRECIO", "MARCA", "FABRICANTE", 
+                                                                     "TAMAÑO", "TIPO", "PULGADAS", "REVOLUCIONES", "CARGA", "AÑO FABRICACION", "MADERA", "ESTILO" + "\n",
+                                                                     "¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
+            contador++;
+        }
+        
         if (productos.isEmpty()) {
             res = "No hay productos introducidos.";
 
@@ -223,13 +232,15 @@ public class NegociosService {
             for (Producto p : productos) {
                 if (p instanceof Televisor) {
                     Televisor t = (Televisor) p;
-                    res += "\n ID NOMBRE  PRECIO  MARCA   FABRICANTE  TAMAÑO   TIPO    PULGADAS" + "\n" + t.getId() + "   " + t.getNombre() + "   " + t.getPrecio() + t.getMarca() + "   " + t.getFabricante() + "   " + t.getTamanyo() + t.getTipo() + "  " + t.getPulgadas();
+                    res += String.format("%2s %11s %13s %13s %17s %14s %11s %16s %11s %11s %19s %11s %11s" , 
+                            t.getId(), t.getNombre(), t.getPrecio(), t.getMarca(), t.getFabricante(), t.getTamanyo(), t.getTipo(), t.getPulgadas(), " ", " ", " ", " ", " " + "\n");
 
                 }
 
                 if (p instanceof Lavadora) {
                     Lavadora l = (Lavadora) p;
-                    res += "\n ID NOMBRE  PRECIO  MARCA   FABRICANTE  REVOLUCIONES  CARGA" + "\n" + l.getId() + "   " + l.getNombre() + "   " + l.getPrecio() + "  " + l.getMarca() + "         " + l.getFabricante() + "   " + l.getTamanyo() + "     " + l.getRevoluciones() + "     " + l.getCarga();
+                    res += String.format("%2s %11s %12s %12s %17s %14s %11s %16s %9s %14s %19s %11s %11s", 
+                            l.getId(), l.getNombre(), l.getPrecio(), l.getMarca(), l.getFabricante(), l.getTamanyo(), " ", " ", " ", " ", l.getRevoluciones(), l.getCarga(), " ", " ", " " + "\n");
 
                 }
 
@@ -237,9 +248,8 @@ public class NegociosService {
 
                     Mueble m = (Mueble) p;
 
-                    res += "\n ID NOMBRE  PRECIO     AÑO FABRICACION              MADERA  ESTILO" + "\n"
-                            + m.getId() + "   " + m.getNombre() + "   " + m.getPrecio() + "  " + m.getAnyoFab()
-                            + "   " + m.getTipoMadera() + "     " + m.getEstilo();
+                    res +=  String.format("%2s %11s %12s %12s %17s %14s %11s %16s %9s %14s %19s %11s %8s", 
+                            m.getId(), m.getNombre(), m.getPrecio(), " ", " ", " ", " ", " ", " ", " ", m.getAnyoFab(), m.getTipoMadera(), m.getEstilo() + "\n");
 
                 }
             }
@@ -252,7 +262,7 @@ public class NegociosService {
         int contador = 0;
         
         if (contador == 0) {
-            res += String.format("%3s %10s %18s %12s %13s %24s %1s", "ID", "NOMBRE", "RAZON SOCIAL", "CIF/DNI", "TIPO", "DESCUENTO" + "\n"
+            res += String.format("%3s %10s %18s %12s %24s %13s %1s", "ID", "NOMBRE", "RAZON SOCIAL", "CIF/DNI", "TIPO MAYORISTA", "DESCUENTO" + "\n"
                                ,"¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
             contador++;
         }
@@ -271,8 +281,8 @@ public class NegociosService {
                 }
                 if (c instanceof Particular) {
                     Particular p = (Particular) c;
-                    res += String.format("%2s %15s %14s %13s %23s %8s" + "\n",
-                                         p.getIdCliente(), p.getNombre(), p.getRazonSocial(), p.getDni(), "Cliente ", "Particular " + "\n");
+                    res += String.format("%2s %15s %14s %13s %23s %15s" + "\n",
+                                         p.getIdCliente(), p.getNombre(), p.getRazonSocial(), p.getDni(), "El Cliente es", "particular " + "\n");
 
                 }
             }

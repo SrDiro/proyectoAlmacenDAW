@@ -21,11 +21,10 @@ public class MenuPrincipal {
     NegociosService servicio;
 
     MenuPrincipal() {
-        servicio = new NegociosService();
-        
+        servicio = new NegociosService();        
     }
 
-    public void inciarAplicacion() {
+    public void inciarAplicacion() throws ParseException {
         
         datosPorDefecto(servicio);
         
@@ -410,39 +409,79 @@ public class MenuPrincipal {
         return fechaFormat;
     }
     
-    public static void datosPorDefecto(NegociosService servicio) {
+    public void datosPorDefecto(NegociosService servicio) throws ParseException {
         
-        Particular p1 = new Particular();        
+        //OBEJTOS
+        Producto producto = null;
+        
+        Particular p1 = new Particular();           
         Mayorista m1 = new Mayorista();
         
         Particular p2 = new Particular();
         Mayorista m2 = new Mayorista();
         
+        Lavadora l1 = new Lavadora();
+        Mueble mu1 = new Mueble();
+        Mueble mu2 = new Mueble();
+        
+        //ENUM TipoMayorista
         TipoMayorista tTienda = TipoMayorista.TIENDA;
         TipoMayorista tGranSuperficie = TipoMayorista.GRAN_SUPERFICIE;
+        
+        //ENUM Televisor
+        Televisor.tipoTele tLCD = Televisor.tipoTele.LCD;
+        Televisor.tipoTele tLED = Televisor.tipoTele.LED;
+        Televisor.tipoTele tOLED = Televisor.tipoTele.OLED;
+        Televisor.tipoTele tPLASMA = Televisor.tipoTele.PLASMA;
+        
+        //ENUM Mueble
+        Mueble.Madera mHAYA = Mueble.Madera.HAYA;
+        Mueble.Madera mPINO = Mueble.Madera.PINO;
+        Mueble.Madera mROBLE = Mueble.Madera.ROBLE;
 
+        //MAYORISTA 1
         m1.setNombre("Rasul Diro");
         m1.setRazonSocial("123456781");
         m1.setCif("54015429K");
         m1.setTipoMayorista(tTienda);
         servicio.introducirCliente(m1);
         
+        //PARTICULAR 1
         p1.setNombre("Sergio Masao");
         p1.setRazonSocial("123456782");
         p1.setDni("54014660B");
         servicio.introducirCliente(p1);
         
+        //MAYORISTA 2
         m2.setNombre("Borja Riao");
         m2.setRazonSocial("123456783");
         m2.setCif("11501378K");
         m2.setTipoMayorista(tGranSuperficie);
         servicio.introducirCliente(m2);
         
+        //PARTICULAR 2
         p2.setNombre("Joselu Toloco");
         p2.setRazonSocial("123456784");
         p2.setDni("50154658F");
         servicio.introducirCliente(p2);
         
+        //MUEBLE 1
+        mu1.setTipoMadera(mPINO);
+        mu1.setEstilo("Chino");
+        mu1.setAnyoFab(this.validarFecha("01-febrero-17"));
+        producto = mu1;
+        producto.setNombre("Mesa 3.0");
+        producto.setPrecio(75);
+        servicio.introducirProducto(mu1);
+        
+        //MUEBLE 2
+        mu2.setTipoMadera(mPINO);
+        mu2.setEstilo("Chino");
+        mu2.setAnyoFab(this.validarFecha("01-febrero-17"));
+        producto = mu1;
+        producto.setNombre("Mesa a .0");
+        producto.setPrecio(75);
+        servicio.introducirProducto(mu1);
     }
 
 }
