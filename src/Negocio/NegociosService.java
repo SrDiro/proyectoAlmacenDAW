@@ -272,7 +272,7 @@ public class NegociosService {
                 if (c instanceof Particular) {
                     Particular p = (Particular) c;
                     res += String.format("%2s %15s %14s %13s %23s %8s" + "\n",
-                                         p.getIdCliente(), p.getNombre(), p.getRazonSocial(), p.getDni(), "ooe ", "ooe " + "\n");
+                                         p.getIdCliente(), p.getNombre(), p.getRazonSocial(), p.getDni(), "Cliente ", "Particular " + "\n");
 
                 }
             }
