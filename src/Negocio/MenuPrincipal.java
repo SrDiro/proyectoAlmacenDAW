@@ -429,7 +429,7 @@ public class MenuPrincipal {
         TipoMayorista tGranSuperficie = TipoMayorista.GRAN_SUPERFICIE;
         
         //ENUM Televisor
-        Televisor.tipoTele tLCD = Televisor.tipoTele.LCD;
+        Televisor.tipoTele tLCD = Televisor.tipoTele.LCD; 
         Televisor.tipoTele tLED = Televisor.tipoTele.LED;
         Televisor.tipoTele tOLED = Televisor.tipoTele.OLED;
         Televisor.tipoTele tPLASMA = Televisor.tipoTele.PLASMA;
@@ -444,12 +444,12 @@ public class MenuPrincipal {
         m1.setRazonSocial("123456781");
         m1.setCif("54015429K");
         m1.setTipoMayorista(tTienda);
-        servicio.introducirCliente(m1);
+        servicio.introducirCliente(m1);  
         
         //PARTICULAR 1
         p1.setNombre("Sergio Masao");
         p1.setRazonSocial("123456782");
-        p1.setDni("54014660B");
+        p1.setDni("54014660B");  
         servicio.introducirCliente(p1);
         
         //MAYORISTA 2
@@ -472,7 +472,7 @@ public class MenuPrincipal {
         producto = mu1;
         producto.setNombre("Mesa 3.0");
         producto.setPrecio(75);
-        servicio.introducirProducto(mu1);       
+        servicio.introducirProducto(mu1);        
         
         //LAVADORA 1
         l1.setRevoluciones(3500);     

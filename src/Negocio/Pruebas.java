@@ -64,6 +64,12 @@ public class Pruebas {
         
         res2 += String.format("%1s %19s %12s %14s %19s", " " + 1, "David", 2, 1, 174.9);
         
+        res2 = "";
+        
+        res2 = String.format("%1s %15s %15s %20s %15s %15s %1s", " ID", "NOMBRE", "PRECIO", "AÑO FABRICACION", "MADERA",  "ESTILO" + "\n"
+                                                               , "¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
+        res2 += String.format("%1s %16s %15s %18s %15s %15s", " " + 1, "Mesa 2.0", 174.9, "01-febrero-17", "PINO", "Chino");
+        
         System.out.println(res2);
         
 //        System.out.println(res);

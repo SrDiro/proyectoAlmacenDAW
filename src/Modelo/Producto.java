@@ -52,7 +52,7 @@ public abstract  class Producto {
     
     
     public String imprimirProducto(){
-        String res = "El id es: "+this.id+" el precio: "+this.precio+" del objeto: "+this.nombre;
+        String res = String.format("%1s %16s %15s", " " + this.id, this.precio, this.nombre);
         return res;
     }
 

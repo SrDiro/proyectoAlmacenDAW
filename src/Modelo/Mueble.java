@@ -22,11 +22,15 @@ public class Mueble extends Producto {
 
     @Override
     public String imprimirProducto() {
-
+        String res = "";
+        
         DateTimeFormatter fechaFormateada = DateTimeFormatter.ofPattern("dd-MMMM-yy");
         String fechaTipo1 = anyoFab.format(fechaFormateada);
 
-        String res = super.imprimirProducto() + "el año de fabricación: " + fechaTipo1 + " el tipo de madera: " + this.tipoMadera + "el estilo: " + getEstilo();
+        res += String.format("%1s %15s %15s %20s %15s %15s %1s", " ID", "PRECIO", "NOMBRE", "AÑO FABRICACION", "MADERA",  "ESTILO" + "\n"
+                                                               , "¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
+        
+        res += String.format("%1s %18s %15s %15s", super.imprimirProducto(), fechaTipo1, this.tipoMadera, getEstilo());
         return res;
 
     }

@@ -101,7 +101,7 @@ public class NegociosService {
 
         for (Cliente c : clientes) {
             if (c.getIdCliente() == numeroCliente) {
-                cliente = c;
+                cliente = c;  
             }
         }
 

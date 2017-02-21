@@ -31,7 +31,12 @@ public class Televisor extends Electrodomestico {
 
     @Override
     public String imprimirProducto() {
-        String res = super.imprimirProducto() + "tipo de TV: " + this.tipo + "con " + this.pulgadas + " pulgadas";
+        String res = "";
+        
+        res += String.format("%1s %15s %15s %15s %15s %15s %12s %15s %1s", " ID", "PRECIO", "NOMBRE", "MARCA", "TAMAÑO", "FABRICANTE", "TIPO TV", "PULGADAS" + "\n"
+                                                               , "¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
+        
+        res += String.format("%1s %17s %11s", super.imprimirProducto(), this.tipo, this.pulgadas);
         return res;
 
     }
