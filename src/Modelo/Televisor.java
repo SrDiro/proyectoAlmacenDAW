@@ -15,18 +15,20 @@ public class Televisor extends Electrodomestico {
 
     @Override
     public void setPrecio(double precioBase) {
-        double precioInc;
+        double precioInc, precioFinal;
         if (this.pulgadas > 40 && tipo == tipoTele.PLASMA) {
             precioInc = (precioBase * 1.10);
-            precio = precioInc - (precioInc / 0.1);
+            precioFinal = precioInc - (precioInc / 0.1);
         } else if (this.pulgadas > 40) {
-            precio = precioBase * 1.10;
+            precioFinal = precioBase * 1.10;
         } else if (tipo == tipoTele.PLASMA) {
-            precio = precioBase - (precioBase * 0.10);
+            precioFinal = precioBase - (precioBase * 0.10);
         } else {
-            precio = precioBase;
+            precioFinal = precioBase;
         }
 
+        precio = Math.round(precioFinal * 100.0) / 100.0;
+        
     }
 
     @Override

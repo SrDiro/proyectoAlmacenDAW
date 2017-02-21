@@ -261,7 +261,9 @@ public class MenuPrincipal {
                     bajaCliente();
                 }
                 if (opcionClientes == 3) {
-                    //PREGUNTAR
+                    System.out.println("Introduzca el número de cliente: ");
+                    int nCliente = sc2.nextInt();
+                    System.out.println(servicio.buscarCliente(nCliente).imprimir());
                 }
                 if (opcionClientes == 4) {
                     System.out.println(servicio.imprimirTodosClientes());
@@ -395,7 +397,7 @@ public class MenuPrincipal {
             } while (!opcionVentas.equals("0"));
 
         } catch (Exception e) {
-            System.out.println("Opcion no valida");
+            System.out.println("Opcion no valida" + e.getMessage());
             this.menuVentas();
         }
 

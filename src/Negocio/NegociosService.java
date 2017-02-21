@@ -52,7 +52,7 @@ public class NegociosService {
                 }
             }
             if (clienteVenta == null) {
-                throw new RuntimeException("El cliente no existe.");
+                throw new RuntimeException(", el cliente no existe.");
             }
 
             Producto productoVenta = null;
@@ -62,7 +62,7 @@ public class NegociosService {
                 }
             }
             if (productoVenta == null) {
-                throw new RuntimeException("El producto no existe.");
+                throw new RuntimeException(", el producto no existe.");
             }
 
             Venta v = new Venta();
@@ -99,12 +99,13 @@ public class NegociosService {
     public Cliente buscarCliente(int numeroCliente) {
         Cliente cliente = null;
 
+        
         for (Cliente c : clientes) {
             if (c.getIdCliente() == numeroCliente) {
                 cliente = c;  
             }
         }
-
+                
         return cliente;
     }
 
@@ -114,12 +115,12 @@ public class NegociosService {
         try {
 
             Venta venta = null;
-            for (int i = 0; i < ventas.size(); i++) {
-                if (ventas.get(i).getIdVenta() == nv) {
-                    venta = ventas.get(i);
+            for (Venta v : ventas) {
+                if (v.getIdVenta() == nv) {
+                    venta = ventas.get(nv);
                 }
             }
-
+            
             if (venta == null) {
                 throw new Exception("La venta con id: " + nv + " no existe");
             } else {
