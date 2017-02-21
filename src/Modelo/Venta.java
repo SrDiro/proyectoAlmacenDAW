@@ -69,7 +69,7 @@ public class Venta {
     
     public String imprimirVenta() {
         String res = "";
-        res = "ID de venta:" + this.getIdVenta() + " , vendedor:" + this.getVendedor() + " , producto:" + this.producto.imprimirProducto();
+        res = "ID de venta:" + this.getIdVenta() + " , vendedor:" + this.getVendedor() + " , productos:";
         return res;
     }
 

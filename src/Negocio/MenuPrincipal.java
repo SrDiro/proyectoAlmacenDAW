@@ -386,7 +386,7 @@ public class MenuPrincipal {
                 if (opcionVentas.equals("3")) {
                     System.out.println("Introduzca número de venta: ");
                     int nv = Integer.parseInt(sc.nextLine());
-                    System.out.println(servicio.buscarVenta(nv));
+                    System.out.println(servicio.buscarVenta(nv)); 
                 }
                 if (opcionVentas.equals("4")) {
                     System.out.println(servicio.imprimirtodasVentas());
@@ -444,7 +444,7 @@ public class MenuPrincipal {
         m1.setRazonSocial("123456781");
         m1.setCif("54015429K");
         m1.setTipoMayorista(tTienda);
-        servicio.introducirCliente(m1);  
+        servicio.introducirCliente(m1);     
         
         //PARTICULAR 1
         p1.setNombre("Sergio Masao");
