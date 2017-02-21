@@ -117,7 +117,9 @@ public class NegociosService {
             Venta venta = null;
             for (Venta v : ventas) {
                 if (v.getIdVenta() == nv) {
+                    System.out.println(v.getIdVenta());
                     venta = ventas.get(nv);
+                    
                 }
             }
             

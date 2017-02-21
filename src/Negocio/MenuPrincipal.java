@@ -387,7 +387,7 @@ public class MenuPrincipal {
                 }
                 if (opcionVentas.equals("3")) {
                     System.out.println("Introduzca número de venta: ");
-                    int nv = Integer.parseInt(sc.nextLine());
+                    int nv = sc.nextInt();
                     System.out.println(servicio.buscarVenta(nv)); 
                 }
                 if (opcionVentas.equals("4")) {

@@ -43,7 +43,7 @@ public class Particular extends Cliente {
 
     @Override
     public String imprimir() {
-        String res = super.imprimir() + " DNI: " + this.dni;
+        String res = super.imprimir() + String.format("%16s %13s %21s", this.dni, "Cliente", "Particular");
         return res;
     }
 

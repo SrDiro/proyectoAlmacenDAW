@@ -70,8 +70,9 @@ public class Pruebas {
 //                                                               , "¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
 //        res2 += String.format("%1s %16s %15s %18s %15s %15s", " " + 1, "Mesa 2.0", 174.9, "01-febrero-17", "PINO", "Chino");
 //        "ID: "+this.idCliente+ " nombre: "+this.nombre+" razón social: "+this.razonSocial;
-        res2 += String.format("%1s %10s %18s %1s", " ID", "NOMBRE", "RAZON SOCIAL" + "\n"
-                               ,"¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
+        res2 += String.format("%-7s %-17s %18s %6s %16s %24s %1s %-6s %-22s %10s %15s %-5s %-18s %-1s", " ID", "NOMBRE", "RAZON SOCIAL", "CIF", "TIPO", "DESCUENTO" + "\n"
+                               ,"¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n"
+                               , 1, "Rasul Diro", 123456781, "54015429K", " ", "TIENDA", 0.0);
 
         System.out.println(res2);
         

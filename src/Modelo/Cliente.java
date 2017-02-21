@@ -52,7 +52,9 @@ public abstract class Cliente {
    
    public String imprimir(){
        //id, nombre, razon social
-      String res = "ID: "+this.idCliente+ " nombre: "+this.nombre+" razón social: "+this.razonSocial;
+      String res = String.format("%-7s %-17s %18s %6s %16s %24s %1s %-6s %-22s %10s", " ID", "NOMBRE", "RAZON SOCIAL", "CIF", "TIPO", "DESCUENTO" + "\n"
+                               ,"¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n"
+                               , this.idCliente, this.nombre, this.razonSocial);
       return res;
        
    }

@@ -35,7 +35,8 @@ public class Mayorista extends Cliente {
     @Override
     public String imprimir() {
         //cif, tipo mayorista y descuento.
-        String res = super.imprimir() + "CIF: " + this.cif + " Tipo mayorista: " + this.tipoMayorista + " descuento: " + this.descuento;
+        String res = super.imprimir() + String.format("%16s %-5s %-18s %-1s", this.cif, " ", this.tipoMayorista, this.descuento);
+//                + "CIF: " + this.cif + " Tipo mayorista: " + this.tipoMayorista + " descuento: " + this.descuento;
         return res;
 
     }
