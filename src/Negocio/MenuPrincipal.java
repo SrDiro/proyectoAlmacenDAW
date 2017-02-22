@@ -360,6 +360,7 @@ public class MenuPrincipal {
 
     private void menuVentas() {
         Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
 
         try {
             String opcionVentas = "-1";
@@ -386,12 +387,12 @@ public class MenuPrincipal {
                     servicio.eliminarVenta(nv);
                 }
                 if (opcionVentas.equals("3")) {
-                    System.out.println("Introduzca número de venta: ");
-                    int nv = sc.nextInt();
+                    System.out.println("Introduzca número de venta: ");   
+                    int nv = sc2.nextInt();
                     System.out.println(servicio.buscarVenta(nv)); 
                 }
                 if (opcionVentas.equals("4")) {
-                    System.out.println(servicio.imprimirtodasVentas());
+                    System.out.println(servicio.imprimirtodasVentas()); 
                 }
 
             } while (!opcionVentas.equals("0"));

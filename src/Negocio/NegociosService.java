@@ -10,6 +10,7 @@ import Modelo.Televisor;
 import Modelo.Venta;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class NegociosService {
@@ -98,7 +99,6 @@ public class NegociosService {
 
     public Cliente buscarCliente(int numeroCliente) {
         Cliente cliente = null;
-
         
         for (Cliente c : clientes) {
             if (c.getIdCliente() == numeroCliente) {
@@ -110,23 +110,26 @@ public class NegociosService {
     }
 
     public String buscarVenta(int nv) {
-        String respuesta;
+        String respuesta = "";
+        boolean encontrado = false;
 
         try {
 
             Venta venta = null;
-            for (Venta v : ventas) {
-                if (v.getIdVenta() == nv) {
-                    System.out.println(v.getIdVenta());
-                    venta = ventas.get(nv);
-                    
+            Venta v = null;
+            
+            Iterator<Venta> it = ventas.iterator();
+            
+            while (it.hasNext() && encontrado == false){
+                venta = it.next();
+                if (venta.getIdVenta() == nv) {
+                    v = venta;
+                    respuesta = v.imprimirVenta();
                 }
             }
             
-            if (venta == null) {
+            if (v == null) {
                 throw new Exception("La venta con id: " + nv + " no existe");
-            } else {
-                respuesta = venta.imprimirVenta();
             }
         } catch (Exception e) {
             throw new RuntimeException("No ha sido posible imprimir la venta" + e.getMessage());
@@ -224,7 +227,8 @@ public class NegociosService {
         if (contador == 0) {
             res += String.format("%3s %10s %12s %12s %16s %13s %10s %15s %18s %10s %18s %10s %10s %1s", "ID", "NOMBRE", "PRECIO", "MARCA", "FABRICANTE", 
                                                                      "TAMAÑO", "TIPO", "PULGADAS", "REVOLUCIONES", "CARGA", "AÑO FABRICACION", "MADERA", "ESTILO" + "\n",
-                                                                     "¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
+                                                                     "¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯"
+                                                                             + "¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" + "\n");
             contador++;
         }
         
