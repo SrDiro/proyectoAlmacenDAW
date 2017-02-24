@@ -21,7 +21,7 @@ public class MenuPrincipal {
     NegociosService servicio;
 
     MenuPrincipal() {
-        servicio = new NegociosService();        
+        servicio = new NegociosService();    
     }
 
     public void inciarAplicacion() throws ParseException {
@@ -37,10 +37,10 @@ public class MenuPrincipal {
                 System.out.println("3.Ventas");
                 System.out.println("0. Para Salir");
                 System.out.println("Introduzca la opcion");
-                Scanner sc = new Scanner(System.in);
+                Scanner sc = new Scanner(System.in);   
                 opcion = sc.nextInt();
                 if (opcion == 1) {
-                    menuProductos();
+                    menuProductos();    
                 }
                 if (opcion == 2) {
                     menuClientes();
